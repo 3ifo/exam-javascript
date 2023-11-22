@@ -30,3 +30,48 @@ const calcolaConcatenazione = (arrayStringhe) => {
   return stringaConcatenata;
 };
 //Non sto richiamando la funzione perche non è richiesto esplicitamente nell'esercizio, senno avrei fatto ad esempio: let risultatoFinale = calcolaConcatenazione(arraySringhe) e al poosto dell'arrayStringhe avrei messo l'array che mi interessa
+
+//Esercizio 3
+
+const book = {
+  title: "Il Grande Gatsby",
+  author: "F. Scott Fitzgerald",
+  year: 1925,
+};
+
+book.rating = 6;
+book.increaseRating = function (valoreNumerico) {
+  this.rating += valoreNumerico;
+  if (this.rating > 10) {
+    this.rating = 10;
+  }
+};
+delete book.year;
+
+const chiavi = Object.keys(book);
+
+// forse avrei potuto anche usare un for in ma mi sentivo piu sicuro in questo modo
+for (let i = 0; i < chiavi.length; i++) {
+  const chiave = chiavi[i];
+  console.log(`${chiave}: ${book[chiave]}`);
+}
+
+//Esercizio 4
+window.addEventListener("load", function () {
+  const button = document.querySelector("button");
+  const input = document.querySelector("input");
+  const p = document.getElementById("errorMessage");
+  const ul = document.getElementById("tasks");
+
+  button.addEventListener("click", function () {
+    if (input.value === "") {
+      p.innerHTML = `Per favore, inserisci del testo`;
+    } else {
+      p.innerHTML = ``;
+      const li = document.createElement("li");
+      li.innerHTML = input.value;
+      ul.appendChild(li);
+      // Qui magari avrei potuto scrivere input.value = ""; per svuotare l'input come ci hai fatto vedere tu a lezione
+    }
+  });
+});
