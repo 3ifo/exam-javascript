@@ -29,7 +29,8 @@ const calcolaConcatenazione = (arrayStringhe) => {
   }
   return stringaConcatenata;
 };
-//Non sto richiamando la funzione perche non è richiesto esplicitamente nell'esercizio, senno avrei fatto ad esempio: let risultatoFinale = calcolaConcatenazione(arraySringhe) e al poosto dell'arrayStringhe avrei messo l'array che mi interessa
+//Non sto invocando la funzione perche non è richiesto esplicitamente nell'esercizio, senno avrei fatto ad esempio: let risultatoFinale = calcolaConcatenazione(arrayStringhe) e al poosto dell'arrayStringhe avrei messo l'array che mi interessa
+//per poi nel caso in cui avessi voluto, stamparla con console.log(risultatoFinale)
 
 //Esercizio 3
 
@@ -75,3 +76,27 @@ window.addEventListener("load", function () {
     }
   });
 });
+
+// Esercizio 5
+
+const power = (base, exponent) => {
+  try {
+    // nella righe sottostanti sto verificando se i parametri non sono di tipo numero e nel caso viene inviato l'errore
+    if (typeof base !== "number" && typeof exponent !== "number") {
+      throw new Error(`${base} e ${exponent} non sono dei numeri`);
+    } else if (typeof base !== "number") {
+      throw new Error(`${base} non è un numero`);
+    } else if (typeof exponent !== "number") {
+      throw new Error(`${exponent} non è un numero`);
+    } else {
+      return base ** exponent;
+    }
+  } catch (error) {
+    console.error(error.message);
+    return null;
+  } finally {
+    console.log("L'operazione è completa");
+  }
+};
+let risultatoFinalee = power(base, exponent);
+// nel caso in cui volessi testare realmente la funzione potrei passare dei valori numerici e verrebbe ad esempio in questo modo : let risultatoFinalee = power(5,6)
